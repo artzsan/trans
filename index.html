@@ -1,0 +1,29 @@
+<!DOCTYPE html lang="ja">
+<html>
+<header>
+    <script type="text/javascript" src="./src/js/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</header>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <img src="src/img/nierletters.png">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <form name="numForm" onsubmit="return translateText()">
+                    数字で文字を指定(スペース区切り)：<br>
+                    ※例「17 16 20 16 17 16 20 16」<br>
+                    <input name="numInput" type="text" value=""> <input type="submit" value="変換">
+                </form>
+            </div>
+        </div>
+        <div id="main"></div>
+    </div>
+</body>
+
+</html>
