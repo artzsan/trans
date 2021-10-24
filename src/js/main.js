@@ -1,5 +1,7 @@
-const alphabets = ["A", "B", "G", "D", "H", ["F", "U", "V", "W"], "Z", ["C", "Ch"], "Th", ["I", "J", "Y"], "K", "L", "M", "N", "S", ["E", "O"], "P", "Tz", "Q", "R", "Sh", "T"]
+const alphabets = ["A", "B", "G", "D", ["E","H"], ["F", "U", "V", "W"], "Z", ["C", "Ch"], ["T","Th"], ["I", "J", "Y"], "K", "L", "M", "N", "S", ["E","O","Q"], ["E","P"], ["F","Tz"], ["E","Q"], "R", ["W","Sh","X"], "T"]
 const hebrew = ["א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י", "כ", "ל", "מ", "נ", "ס", "ע", "פ", "צ", "ק", "ר", "ש", "ת"]
+
+const typeData = num => document.numForm.numInput.value  += num + " "
 
 const translateText = () => {
     let str = document.numForm.numInput.value
@@ -28,37 +30,21 @@ const translateText = () => {
         return
     }
     const output = () => {
-        document.getElementById("main").innerHTML = `
-          <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-12">
-                  <div class="card fluid">
-                      <div class="section"><h3>ヘブライ通常(右→左読み)</h3></div>
-                      <div class="section"><ul><li>${result.hebrew_normal}</li></ul></div>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-12">
-              <div class="card fluid">
-                  <div class="section"><h3>ヘブライ逆順(左→右読み)</h3></div>
-                  <div class="section"><ul><li>${result.hebrew_reverse}</li></ul></div>
-              </div>
-          </div>
-          </div>
-          <div class="row">
-               <div class="col-sm-12 col-md-12 col-lg-12">
-                  <div class="card fluid" id="alphabets">
-                  <div class="section"><h3>英文字</h3></div>
-                  <div class="section"><ul id="alphabet_list">${result.alphabets.map(element => '<li>' + element + '</li>').join('')}</ul></div>
-              </div>
-          </div>`
+        document.getElementById("result").innerHTML = `
+        <h3>ヘブライ通常(左→右読み)</h3>
+        <ul><li>${result.hebrew_normal}</li></ul>
+        <h3>ヘブライ逆順(右→左読み)</h3>
+        <ul><li>${result.hebrew_reverse}</li></ul>
+        <h3>アルファベット</h3>
+        <ul id="alphabet_list">${result.alphabets.map(element => '<li>' + element + '</li>').join('')}</ul>
+        `
     }
     
     str = str.replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xfee0)).replace(/　/g, " ")
     if(str.match(/^[\d ]+$/)){
         str = str.split(' ').filter(Boolean);
-        if ( ! str.every( elem => elem.match(/^\d$|^1[0-9]|2[0-2]$/))){
-            document.getElementById("main").innerHTML = `<p>入力に誤りがあるかプログラムが間違ってますぺろぺろ</p>`
+        if ( ! str.every( elem => elem.match(/^[1-9]$|^1[0-9]$|^2[0-2]$/))){
+            document.getElementById("result").innerHTML = `<blockquote><em><p>入力に誤りがあるかプログラムが間違ってますぺろぺろ</p></em></blockquote>`
             return false
         }
         let pickedAlphabets = [];
@@ -76,7 +62,7 @@ const translateText = () => {
     }
 
     else {
-        document.getElementById("main").innerHTML = `<p>入力に誤りがあるかプログラムが間違ってますぺろぺろ</p>`
+        document.getElementById("result").innerHTML = `<blockquote><em><p>入力に誤りがあるかプログラムが間違ってますぺろぺろ</p></em></blockquote>`
 
     }
     return false

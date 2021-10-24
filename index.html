@@ -1,29 +1,300 @@
 <!DOCTYPE html lang="ja">
 <html>
-<header>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="./src/css/milligram.css">
     <script type="text/javascript" src="./src/js/main.js"></script>
-    <link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-</header>
+</head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <img src="src/img/nierletters.png">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <form name="numForm" onsubmit="return translateText()">
-                    数字で文字を指定(スペース区切り)：<br>
-                    ※例「17 16 20 16 17 16 20 16」<br>
-                    <input name="numInput" type="text" value="" inputmode="numeric"> <input type="submit" value="変換">
-                </form>
-            </div>
-        </div>
-        <div id="main"></div>
-    </div>
+    <header>
+        <h1>NieR Translator</h1>
+    </header>
+    <main class="container">
+        <section>
+    <table>
+        <thead style="text-align: center;">
+            <tr>
+                <th>番号</th>
+                <th>名称</th>
+                <th>音</th>
+                <th>天使</th>
+                <th>Nier</th>
+                <th>マラキム</th>
+                <th>渡河</th>
+                <th>ヘブライ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-num="0" onclick="return typeData(1)">
+                <td>1</td>
+                <td>Aleph</td>
+                <td>A</td>
+                <td><img src="./src/img/angelic/angelic_000.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_000.png"></td>
+                <td><img src="./src/img/toka/toka_000.png"></td>
+                <td>א</td>
+            </tr>
+            <tr data-num="1" onclick="return typeData(2)">
+                <td>2</td>
+                <td>Beth</td>
+                <td>B</td>
+                <td><img src="./src/img/angelic/angelic_001.png"></td>
+                <td><img src="./src/img/nier/nier_001.png"></td>
+                <td><img src="./src/img/malachim/malachim_001.png"></td>
+                <td><img src="./src/img/toka/toka_001.png"></td>
+                <td>ב</td>
+            </tr>
+            <tr data-num="2" onclick="return typeData(3)">
+                <td>3</td>
+                <td>Gimel</td>
+                <td>G</td>
+                <td><img src="./src/img/angelic/angelic_002.png"></td>
+                <td><img src="./src/img/nier/nier_002.png"></td>
+                <td><img src="./src/img/malachim/malachim_002.png"></td>
+                <td><img src="./src/img/toka/toka_002.png"></td>
+                <td>ג</td>
+            </tr>
+            <tr data-num="3" onclick="return typeData(4)">
+                <td>4</td>
+                <td>Daleth</td>
+                <td>D</td>
+                <td><img src="./src/img/angelic/angelic_003.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_003.png"></td>
+                <td><img src="./src/img/toka/toka_003.png"></td>
+                <td>ד</td>
+            </tr>
+            <tr data-num="4" onclick="return typeData(5)">
+                <td>5</td>
+                <td>He</td>
+                <td>E,H</td>
+                <td><img src="./src/img/angelic/angelic_004.png"></td>
+                <td><img src="./src/img/nier/nier_004.png"></td>
+                <td><img src="./src/img/malachim/malachim_004.png"></td>
+                <td><img src="./src/img/toka/toka_004.png"></td>
+                <td>ה</td>
+            </tr>
+            <tr data-num="5" onclick="return typeData(6)">
+                <td>6</td>
+                <td>Vau</td>
+                <td>F,U,V,W</td>
+                <td><img src="./src/img/angelic/angelic_005.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_005.png"></td>
+                <td><img src="./src/img/toka/toka_005.png"></td>
+                <td>ו</td>
+            </tr>
+            <tr data-num="6" onclick="return typeData(7)">
+                <td>7</td>
+                <td>Zayin</td>
+                <td>Z</td>
+                <td><img src="./src/img/angelic/angelic_006.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_006.png"></td>
+                <td><img src="./src/img/toka/toka_006.png"></td>
+                <td>ז</td>
+            </tr>
+            <tr data-num="7" onclick="return typeData(8)">
+                <td>8</td>
+                <td>Cheth</td>
+                <td>C,Ch</td>
+                <td><img src="./src/img/angelic/angelic_007.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_007.png"></td>
+                <td><img src="./src/img/toka/toka_007.png"></td>
+                <td>ח</td>
+            </tr>
+            <tr data-num="8" onclick="return typeData(9)">
+                <td>9</td>
+                <td>Theth</td>
+                <td>T,Th</td>
+                <td><img src="./src/img/angelic/angelic_008.png"></td>
+                <td><img src="./src/img/nier/nier_008.png"></td>
+                <td><img src="./src/img/malachim/malachim_008.png"></td>
+                <td><img src="./src/img/toka/toka_008.png"></td>
+                <td>ט</td>
+            </tr>
+            <tr data-num="9" onclick="return typeData(10)">
+                <td>10</td>
+                <td>Yod</td>
+                <td>I,J,Y</td>
+                <td><img src="./src/img/angelic/angelic_009.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_009.png"></td>
+                <td><img src="./src/img/toka/toka_009.png"></td>
+                <td>י</td>
+            </tr>
+            <tr data-num="10" onclick="return typeData(11)">
+                <td>11</td>
+                <td>Kaph</td>
+                <td>K</td>
+                <td><img src="./src/img/angelic/angelic_010.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_010.png"></td>
+                <td><img src="./src/img/toka/toka_010.png"></td>
+                <td>כ</td>
+            </tr>
+            <tr data-num="11" onclick="return typeData(12)">
+                <td>12</td>
+                <td>Lamed</td>
+                <td>L</td>
+                <td><img src="./src/img/angelic/angelic_011.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_011.png"></td>
+                <td><img src="./src/img/toka/toka_011.png"></td>
+                <td>ל</td>
+            </tr>
+            <tr data-num="12" onclick="return typeData(13)">
+                <td>13</td>
+                <td>Mem</td>
+                <td>M</td>
+                <td><img src="./src/img/angelic/angelic_012.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_012.png"></td>
+                <td><img src="./src/img/toka/toka_012.png"></td>
+                <td>מ</td>
+            </tr>
+            <tr data-num="13" onclick="return typeData(14)">
+                <td>14</td>
+                <td>Nun</td>
+                <td>N</td>
+                <td><img src="./src/img/angelic/angelic_013.png"></td>
+                <td><img src="./src/img/nier/nier_013.png"></td>
+                <td><img src="./src/img/malachim/malachim_013.png"></td>
+                <td><img src="./src/img/toka/toka_013.png"></td>
+                <td>נ</td>
+            </tr>
+            <tr data-num="14" onclick="return typeData(15)">
+                <td>15</td>
+                <td>Samech</td>
+                <td>S</td>
+                <td><img src="./src/img/angelic/angelic_014.png"></td>
+                <td><img src="./src/img/nier/nier_014.png"></td>
+                <td><img src="./src/img/malachim/malachim_014.png"><img src="./src/img/malachim/malachim_014_2.png"></td>
+                <td><img src="./src/img/toka/toka_014.png"></td>
+                <td>ס</td>
+            </tr>
+            <tr data-num="15" onclick="return typeData(16)">
+                <td>16</td>
+                <td>Ayin</td>
+                <td>E,O,(Q)</td>
+                <td><img src="./src/img/angelic/angelic_015.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_015.png"></td>
+                <td><img src="./src/img/toka/toka_015.png"></td>
+                <td>ע</td>
+            </tr>
+            <tr data-num="16" onclick="return typeData(17)">
+                <td>17</td>
+                <td>Pe</td>
+                <td>P,Ph</td>
+                <td><img src="./src/img/angelic/angelic_016.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_016.png"></td>
+                <td><img src="./src/img/toka/toka_016.png"></td>
+                <td>פ</td>
+            </tr>
+            <tr data-num="17" onclick="return typeData(18)">
+                <td>18</td>
+                <td>Tzaddi</td>
+                <td>Tz,(F)</td>
+                <td><img src="./src/img/angelic/angelic_017.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_017.png"></td>
+                <td><img src="./src/img/toka/toka_017.png"></td>
+                <td>צ</td>
+            </tr>
+            <tr data-num="18" onclick="return typeData(19)">
+                <td>19</td>
+                <td>Qoph</td>
+                <td>Q,(E)</td>
+                <td><img src="./src/img/angelic/angelic_018.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_018.png"></td>
+                <td><img src="./src/img/toka/toka_018.png"></td>
+                <td>ק</td>
+            </tr>
+            <tr data-num="19" onclick="return typeData(20)">
+                <td>20</td>
+                <td>Resh</td>
+                <td>R</td>
+                <td><img src="./src/img/angelic/angelic_019.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_019.png"></td>
+                <td><img src="./src/img/toka/toka_019.png"></td>
+                <td>ר</td>
+            </tr>
+            <tr data-num="20" onclick="return typeData(21)">
+                <td>21</td>
+                <td>Shin</td>
+                <td>Sh,X,(W)</td>
+                <td><img src="./src/img/angelic/angelic_020.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_020.png"></td>
+                <td><img src="./src/img/toka/toka_020.png"></td>
+                <td>ש</td>
+            </tr>
+            <tr data-num="21" onclick="return typeData(22)">
+                <td>22</td>
+                <td>Tav</td>
+                <td>T</td>
+                <td><img src="./src/img/angelic/angelic_021.png"></td>
+                <td></td>
+                <td><img src="./src/img/malachim/malachim_021.png"></td>
+                <td><img src="./src/img/toka/toka_021.png"></td>
+                <td>ת</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+        <section>
+            <h2>変換</h2>
+            <form name="numForm" onsubmit="return translateText()">
+                <input name="numInput" type="text" value="" inputmode="text">
+                <input type="submit" value="変換"> <input type="button" value="クリア" style="background-color: darkgray; border-color: darkgray;" onclick="document.numForm.numInput.value = '';">
+            </form>
+            <div id="result"></div>
+            <h2>説明</h2>
+            <p>天使文字をアルファベット音に変換し、候補を洗い出すツールです。</p>
+            <p>対応表のうち変換したい記号のある行をタップするか、スペース区切りで文字数字を入力し、変換ボタンを押してください。</p>
+            <p>※例「17 16 20 16 17 16 20 16」</p>
+            <p>対応表「音」列のうち括弧で示した音(18番F等)は、ニーア世界の規則では相当する頻度が高いが、本来は相当しない音であるため括弧書きにしています。18番はツァディというTz発音であるため通常ならFにはなりません。他にも21番は日本語のシャシュショの音に相当しますが、ニーア世界では
+                その形状からかWと変換されることが多いです。16番と19番は英語圏でも―少数派の様ですが―入れ替わることがあるようなので、これも括弧書きで音を追加しています。
+            </p>
+            <p>Nier文字・天使文字を優先的に選び、見当たらない場合はマラキム、最後に渡河文字を選ぶことをおすすめします。</p>
+            <p>お気付きの事があれば制作者までご連絡ください。</p>
+            <h3>参考</h3>
+            <p><a href="https://en.wikipedia.org/wiki/Celestial_Alphabet">天使文字について(wikipedia)</a></p>
+            <p><a href="https://en.wikipedia.org/wiki/Malachim">マラキム文字について(wikipedia)</a></p>
+            <p><a href="https://en.wikipedia.org/wiki/Transitus_Fluvii">渡河文字について(wikipedia)</a></p>
+            <p><a href="https://ja.wikipedia.org/wiki/%E3%82%B2%E3%83%9E%E3%83%88%E3%83%AA%E3%82%A2">ゲマトリア(数字暗号で使うヘブライ語の数秘術)について(wikipedia)</a></p>
+        </section>
+    </main>
+    <footer class="footer">
+        <section class="container">
+            <p class="copyright">Powered with ♥ by<a href="https://twitter.com/artzsan" rel="noopener" target="_blank"
+                    title="artzsan"> artzsan</a>.</p>
+            <nav class="nav">
+                <a class="link" href="https://twitter.com/artzsan" rel="noopener" target="_blank"
+                    title="artzsan on Twitter">
+                    <svg class="icon" viewBox="0 0 512 512">
+                        <g>
+                            <path
+                                d="M512,100c0,1,0,2,0,3c-0.286,0.144-0.678,0.213-0.843,0.444c-12.988,18.134-28.416,33.907-45.899,47.727c-1.117,0.883-2.077,2.606-2.191,4.012c-0.803,9.932-1.033,19.92-2.083,29.822c-1.466,13.833-2.476,27.829-5.44,41.37c-14.968,68.364-47.628,126.547-101.357,172.138c-38.719,32.854-83.248,53.526-133.219,62.461c-8.297,1.483-16.643,2.691-24.966,4.027c-21.667,0-43.333,0-65,0c-6.005-0.986-12-2.043-18.017-2.947c-38.1-5.724-73.019-20.017-106.071-39.338c-1.137-0.664-2.119-1.592-3.174-2.396c0.036-0.494,0.072-0.988,0.108-1.482c55.033,4.465,105.085-8.256,149.475-42.204c-45.885-6.43-78.15-29.625-94.769-73.517c5.615,0,10.368,0.022,15.12-0.006c4.832-0.029,9.677,0.091,14.492-0.223c4.535-0.295,9.04-1.07,13.558-1.634c-59.936-17.467-83.246-74.124-78.912-104.888c13.575,6.847,27.734,11.166,43.121,11.612c-20.952-16.59-35.308-37.341-40.662-63.445c-5.325-25.967-2.189-50.979,11.493-75.753c57.54,65.903,128.3,104.011,215.511,109.404c0-14.21-1.604-27.562,0.309-40.389c5.197-34.848,24.9-60.248,55.821-76.352C318.775,56.04,330.755,53.726,342,50c8.667,0,17.333,0,26,0c0.753,0.291,1.497,0.808,2.261,0.839c10.134,0.412,19.371,4.007,28.571,7.834c10.89,4.53,20.224,11.34,28.906,19.186c3.154,2.85,6.411,4.546,11.24,3.473c17.612-3.914,33.97-11.042,50.23-18.523c3.07-1.413,6.197-2.702,10.545-4.59c-8.316,23.453-22.797,40.565-40.623,55.441C477.73,112.015,494.891,106.107,512,100z">
+                            </path>
+                        </g>
+                    </svg>
+                </a>
+            </nav>
+        </section>
+    </footer>
 </body>
 
 </html>
